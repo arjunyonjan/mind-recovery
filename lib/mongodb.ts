@@ -1,25 +1,85 @@
-﻿import { MongoClient, Db } from 'mongodb';
+﻿// Static slide data - Main Title + 6 Content Slides
+export type Slide = {
+  _id: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  order: number;
+  bgImage?: string;
+  isTitleSlide?: boolean;
+};
 
-const uri = process.env.MONGODB_URI!;
-let client: MongoClient;
-let db: Db;
-
-export async function connectToDatabase(): Promise<{ db: Db; client: MongoClient }> {
-  if (!client) {
-    client = new MongoClient(uri);
-    await client.connect();
-    db = client.db();
+const staticSlides: Slide[] = [
+  // SLIDE 0: MAIN TITLE (with 3D brain image)
+  {
+    _id: "title",
+    title: "Your Brain Makes Toxins Every Hour",
+    subtitle: "",
+    content: "",
+    order: 0,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778931298/mind-recovery/b5227091-da54-40fa-a78a-b949fe409dc8.png",
+    isTitleSlide: true
+  },
+  // SLIDE 1
+  {
+    _id: "1",
+    title: "🧠 Your brain makes waste.",
+    subtitle: "One type: Amyloid-beta",
+    content: "",
+    order: 1,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778925083/mind-recovery/file_000000001f4c720b9e0816ff28ebad0e_gw8m7e.png"
+  },
+  // SLIDE 2
+  {
+    _id: "2",
+    title: "⏱️ Each hour → ~1 μg of amyloid-beta",
+    subtitle: "🧂 That's ~1/50th of a grain of salt",
+    content: "",
+    order: 2,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778925120/mind-recovery/file_000000001438720bb009ad1a20c7ab37_nuwpiz.png"
+  },
+  // SLIDE 3
+  {
+    _id: "3",
+    title: "⚠️ Problem isn't making it.",
+    subtitle: "Problem is clearing it.",
+    content: "Healthy brain: clears ~90% during sleep\nAging / Poor sleep → plaques form",
+    order: 3,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778928373/mind-recovery/ChatGPT_Image_May_16_2026_04_00_49_PM_xtvymf.png"
+  },
+  // SLIDE 4
+  {
+    _id: "4",
+    title: "📈 5,000+ pg/mg → plaques form",
+    subtitle: "🗑️ Clearance failure → neurodegeneration",
+    content: "",
+    order: 4,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778928379/mind-recovery/ChatGPT_Image_May_16_2026_04_29_42_PM_ziqpds.png"
+  },
+  // SLIDE 5
+  {
+    _id: "5",
+    title: "💤 Best clearance tool?",
+    subtitle: "Deep sleep",
+    content: "(Glymphatic system activates)",
+    order: 5,
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1778928384/mind-recovery/ChatGPT_Image_May_16_2026_04_29_35_PM_ftckjm.png"
+  },
+  // SLIDE 6
+  {
+    _id: "6",
+    title: "Your brain cleans itself while you sleep.",
+    subtitle: "Don't skip it. 🧠💤",
+    content: "",
+    order: 6,
+    bgImage: ""
   }
-  return { db, client };
+];
+
+export async function getSlides(): Promise<Slide[]> {
+  return Promise.resolve(staticSlides);
 }
 
-export async function getSlides() {
-  const { db } = await connectToDatabase();
-  return db.collection('slides').find({}).sort({ order: 1 }).toArray();
-}
-
-export async function seedSlides(slides: any[]) {
-  const { db } = await connectToDatabase();
-  await db.collection('slides').deleteMany({});
-  return db.collection('slides').insertMany(slides);
+export async function connectToDatabase() {
+  return { db: null, client: null };
 }
