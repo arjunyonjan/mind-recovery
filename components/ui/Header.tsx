@@ -24,8 +24,8 @@ export default function Header() {
     >
       <div className="max-w-6xl lg:max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5">
         
-        {/* Logo - Large & Prominent */}
-        <div className="flex items-center gap-2 sm:gap-3 group cursor-pointer">
+        {/* Logo - Links to Home */}
+        <a href="/" className="flex items-center gap-2 sm:gap-3 group cursor-pointer">
           <div className="relative">
             <span className="text-4xl md:text-5xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 inline-block drop-shadow-lg">
               🧠
@@ -43,20 +43,18 @@ export default function Header() {
               </span>
             </div>
           </div>
-        </div>
+        </a>
 
-        {/* Navigation - Sleek */}
+        {/* Navigation - With Real Routes */}
         <nav className="hidden md:flex gap-4 md:gap-6 lg:gap-8">
-          {["Home", "Topics", "Science", "About"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="relative text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium group"
-            >
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          <a href="/" className="relative text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium group">
+            Home
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 group-hover:w-full" />
+          </a>
+          <a href="/brain-waste" className="relative text-white/70 hover:text-white transition-colors duration-300 text-sm font-medium group">
+            Brain Waste
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 group-hover:w-full" />
+          </a>
         </nav>
 
         {/* CTA Button */}
