@@ -202,7 +202,7 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
         close={() => setIsOpen(false)}
         slides={[{ src: currentImage }]}
         plugins={[Zoom]}
-        zoom={{ zoomFactor: 3 }}
+        
       />
     </>
   );

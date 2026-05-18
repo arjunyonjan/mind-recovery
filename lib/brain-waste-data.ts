@@ -1,4 +1,4 @@
-﻿// Brain Waste - Timeline Slides (with Intro)
+﻿// Brain Waste - Timeline Slides
 export type BrainWasteSlide = {
   _id: string;
   title: string;
@@ -12,9 +12,9 @@ export type BrainWasteSlide = {
 };
 
 const staticSlides: BrainWasteSlide[] = [
-  // INTRO SLIDE (no time, no image side)
+  // INTRO SLIDE
   {
-    _id: "intro", isIntro: true,
+    _id: "intro",
     title: "Brain Waste: What Builds Up Hourly",
     subtitle: "ROS · Amyloid-beta · Tau",
     content: "Every hour, your brain produces toxins. Without proper clearance, they accumulate—leading to oxidative stress, plaques, and tangles.",
@@ -24,6 +24,7 @@ const staticSlides: BrainWasteSlide[] = [
     highlight: "The goal: Understand what builds up. Learn how to clear it.",
     isIntro: true
   },
+  // 6:00 AM
   {
     _id: "1",
     title: "Morning Reset",
@@ -39,6 +40,7 @@ const staticSlides: BrainWasteSlide[] = [
     ],
     highlight: "Brain cleared and ready for the day."
   },
+  // 8:00 AM
   {
     _id: "2",
     title: "Getting Started",
@@ -54,6 +56,7 @@ const staticSlides: BrainWasteSlide[] = [
     ],
     highlight: "Brain becomes active with early stimulation."
   },
+  // 10:00 AM
   {
     _id: "3",
     title: "Mid-Morning",
@@ -69,6 +72,7 @@ const staticSlides: BrainWasteSlide[] = [
     ],
     highlight: "Mental effort and stimulation continue rising."
   },
+  // 12:00 PM
   {
     _id: "4",
     title: "Noon",
@@ -84,35 +88,37 @@ const staticSlides: BrainWasteSlide[] = [
     ],
     highlight: "Cognitive load peaks as toxins continue accumulating."
   },
+  // 2:00 PM
   {
     _id: "5",
-    title: "Afternoon: Toxins Peak",
-    subtitle: "Maximum Accumulation",
-    content: "ROS levels peak. Amyloid-beta plaques begin forming.",
+    title: "Early Afternoon",
+    subtitle: "More Accumulation",
+    content: "Continuous stress and focus lead to steady toxin buildup.",
     timeLabel: "2:00 PM",
-    bgImage: "",
-    features: [],
-    highlight: ""
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779095692/mind-recovery/87100c9b-33db-4479-b62b-df777fd4a459.png",
+    features: [
+      { title: "Sustained Stress", color: "amber" },
+      { title: "Back-to-Back Meetings", color: "orange" },
+      { title: "Caffeine Sustains", color: "yellow" },
+      { title: "Screen Time High", color: "rose" }
+    ],
+    highlight: "Continuous stress and focus lead to steady toxin buildup."
   },
+  // 4:00 PM
   {
     _id: "6",
-    title: "Evening: Peak Damage",
-    subtitle: "End of day stress",
-    content: "Maximum toxin levels. Plaques and tangles forming.",
-    timeLabel: "9:00 PM",
-    bgImage: "",
-    features: [],
-    highlight: ""
-  },
-  {
-    _id: "7",
-    title: "Night: Sleep Needed",
-    subtitle: "Glymphatic system activates",
-    content: "Deep sleep clears 60-90% of amyloid-beta.",
-    timeLabel: "11:00 PM",
-    bgImage: "",
-    features: [],
-    highlight: ""
+    title: "Late Afternoon",
+    subtitle: "Damage High",
+    content: "Damage increases as mental fatigue and stress persist.",
+    timeLabel: "4:00 PM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779096850/mind-recovery/9933640f-589a-4aac-b3b5-cfe21bee81de.png",
+    features: [
+      { title: "High Stress", color: "red" },
+      { title: "Deadline Pressure", color: "orange" },
+      { title: "Energy Crash Approaching", color: "amber" },
+      { title: "Mental Fatigue Sets In", color: "rose" }
+    ],
+    highlight: "Damage increases as mental fatigue and stress persist."
   }
 ];
 
