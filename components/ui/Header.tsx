@@ -18,8 +18,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled 
-          ? "bg-white/5 backdrop-blur-xl border-b border-white/20 shadow-2xl" 
-          : "bg-gradient-to-r from-black/20 to-transparent backdrop-blur-sm"
+          ? "bg-black/80 backdrop-blur-2xl border-b border-white/30 shadow-2xl shadow-black/50" 
+          : "bg-black/60 backdrop-blur-xl"
       }`}
     >
       <div className="max-w-6xl lg:max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-5">
@@ -34,7 +34,7 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-xl md:text-3xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-300 bg-clip-text text-transparent tracking-tight">
-              Mind Recovery
+              FastMind
             </span>
             <div className="flex items-center gap-1.5">
               <NepalFlag className="h-6 w-auto md:h-7" />

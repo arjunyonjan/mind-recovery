@@ -100,7 +100,7 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
             return (
               <section key={slide._id} className="min-h-screen w-full flex items-center justify-center">
                 <div className="w-full max-w-4xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16 text-center">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-1.5 text-sm font-medium text-sky-700 mb-6">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 mb-6">
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
                       <path d="M4 17h16" />
                       <path d="M6 17a6 6 0 0112 0" />
@@ -133,7 +133,7 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
               <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
                   <div className="text-left">
-                    <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-1.5 text-sm font-medium text-sky-700 mb-6">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 mb-6">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
                         <path d="M4 17h16" />
                         <path d="M6 17a6 6 0 0112 0" />
@@ -172,12 +172,11 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                   </div>
                   <div className="flex justify-center items-center">
                     {slide.bgImage ? (
-                      <div className="relative w-full max-w-md lg:max-w-lg">
-                        <div className="absolute -inset-4 bg-sky-500/20 blur-3xl rounded-full opacity-60" />
+                      <div className="relative w-full max-w-2xl mx-auto">
                         <img
                           src={slide.bgImage}
                           alt={slide.title}
-                          className="relative w-full h-auto rounded-2xl shadow-2xl cursor-pointer"
+                          className="w-full h-auto rounded-lg cursor-pointer"
                           onClick={() => {
                             setCurrentImage(slide.bgImage || "");
                             setIsOpen(true);
@@ -202,7 +201,6 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
         close={() => setIsOpen(false)}
         slides={[{ src: currentImage }]}
         plugins={[Zoom]}
-        
       />
     </>
   );
