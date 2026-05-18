@@ -149,7 +149,7 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                 <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 md:gap-10 lg:gap-14 items-center">
                   
                   {/* Left Column: Text */}
-                  <div className="text-left">
+                  <div className="text-left pl-10 md:pl-12 lg:pl-16">
                     <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 mb-6">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
                         <path d="M4 17h16" />
