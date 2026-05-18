@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
@@ -95,12 +94,24 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
     <>
       <div className="min-h-screen bg-white">
         {slides.map((slide) => {
-          // INTRO SLIDE
+                    // INTRO SLIDE: Full Screen Background Image
           if (slide.isIntro) {
             return (
-              <section key={slide._id} className="min-h-screen w-full flex items-center justify-center">
-                <div className="w-full max-w-4xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16 text-center">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 mb-6">
+              <section key={slide._id} className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+                {/* FULL SCREEN BACKGROUND IMAGE - Edge-to-Edge, No Shadow */}
+                {slide.bgImage && (
+                  <div 
+                    className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${slide.bgImage})` }}
+                  />
+                )}
+                
+                {/* Dark Overlay for Text Readability */}
+                <div className="absolute inset-0 z-10 bg-black/60" />
+
+                {/* Content Container */}
+                <div className="relative z-20 w-full max-w-4xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16 text-center">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-md px-4 py-2 text-sm font-medium text-white mb-6 border border-white/30">
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
                       <path d="M4 17h16" />
                       <path d="M6 17a6 6 0 0112 0" />
@@ -108,18 +119,22 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                     </svg>
                     {slide.timeLabel}
                   </div>
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6">
+                  
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-lg">
                     {slide.title}
                   </h1>
-                  <p className="text-xl sm:text-2xl md:text-3xl font-medium text-sky-600 mb-6">
+                  
+                  <p className="text-xl sm:text-2xl md:text-3xl font-medium text-sky-100 mb-6 drop-shadow-md">
                     {slide.subtitle}
                   </p>
-                  <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+                  
+                  <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto mb-8 leading-relaxed">
                     {slide.content}
                   </p>
+                  
                   {slide.highlight && (
-                    <div className="rounded-2xl border border-sky-200 bg-gradient-to-r from-sky-50 to-indigo-50 px-6 py-4 max-w-md mx-auto">
-                      <p className="text-sm text-sky-800">{slide.highlight}</p>
+                    <div className="rounded-2xl border border-white/30 bg-black/40 backdrop-blur-md px-6 py-4 max-w-md mx-auto shadow-lg">
+                      <p className="text-sm text-sky-100 font-medium">{slide.highlight}</p>
                     </div>
                   )}
                 </div>
@@ -127,11 +142,13 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
             );
           }
           
-          // REGULAR SLIDES
+          // REGULAR SLIDES (Side-by-Side Layout)
           return (
-            <section key={slide._id} className="min-h-screen w-full flex items-center justify-center">
+            <section key={slide._id} className="min-h-screen w-full flex items-center justify-center bg-white">
               <div className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 lg:px-10 py-12 md:py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 md:gap-10 lg:gap-14 items-center">
+                  
+                  {/* Left Column: Text */}
                   <div className="text-left">
                     <div className="inline-flex items-center gap-2 rounded-full bg-sky-100 px-4 py-2 text-sm font-medium text-sky-700 mb-6">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
@@ -141,19 +158,23 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                       </svg>
                       {slide.timeLabel}
                     </div>
+                    
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-2">
                       {slide.title}
                     </h2>
+                    
                     <p className="text-xl sm:text-2xl font-medium text-sky-600 mb-6">
                       {slide.subtitle}
                     </p>
-                    <p className="text-slate-600 mb-8 max-w-md">
+                    
+                    <p className="text-slate-600 mb-8 max-w-md text-lg">
                       {slide.content}
                     </p>
+                    
                     {slide.features && slide.features.length > 0 && (
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                         {slide.features.map((feature, idx) => (
-                          <div key={idx} className={`flex items-center gap-3 rounded-xl border ${colorClasses[feature.color].split(" ")[0]} ${colorClasses[feature.color].split(" ")[1]} p-3`}>
+                          <div key={idx} className={`flex items-center gap-3 rounded-xl border ${colorClasses[feature.color].split(" ")[0]} ${colorClasses[feature.color].split(" ")[1]} p-3 shadow-sm`}>
                             <div className={iconColors[feature.color]}>
                               {getIcon(feature.title)}
                             </div>
@@ -164,19 +185,22 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                         ))}
                       </div>
                     )}
+                    
                     {slide.highlight && (
-                      <div className="rounded-xl border border-sky-200 bg-sky-50 px-5 py-4">
-                        <p className="text-sm text-sky-800">{slide.highlight}</p>
+                      <div className="rounded-xl border border-sky-200 bg-sky-50 px-5 py-4 shadow-sm">
+                        <p className="text-sm text-sky-800 font-medium">{slide.highlight}</p>
                       </div>
                     )}
                   </div>
+
+                  {/* Right Column: Big Square Image (No Shadow, No Radius) */}
                   <div className="flex justify-center items-center">
                     {slide.bgImage ? (
-                      <div className="relative w-full max-w-2xl mx-auto">
+                      <div className="relative w-full aspect-square max-w-lg mx-auto bg-transparent overflow-hidden">
                         <img
                           src={slide.bgImage}
                           alt={slide.title}
-                          className="w-full h-auto rounded-lg cursor-pointer"
+                          className="w-full h-full object-contain bg-transparent cursor-pointer hover:opacity-95 transition-opacity duration-300"
                           onClick={() => {
                             setCurrentImage(slide.bgImage || "");
                             setIsOpen(true);
@@ -184,7 +208,7 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
                         />
                       </div>
                     ) : (
-                      <div className="w-full max-w-md h-80 bg-slate-100 rounded-2xl border border-slate-200 flex items-center justify-center">
+                      <div className="w-full max-w-md aspect-square bg-transparent rounded-none  flex items-center justify-center">
                         <span className="text-slate-400">Image coming soon</span>
                       </div>
                     )}
@@ -205,3 +229,12 @@ export default function BrainWasteSlider({ slides }: { slides: BrainWasteSlide[]
     </>
   );
 }
+
+
+
+
+
+
+
+
+
