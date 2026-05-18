@@ -5,11 +5,7 @@
   --background: #1a2335;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset removed to allow Tailwind utilities */
 
 html {
   scroll-behavior: smooth;
