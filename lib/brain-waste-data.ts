@@ -16,8 +16,8 @@ const staticSlides: BrainWasteSlide[] = [
   {
     _id: "intro",
     title: "Brain Waste: What Builds Up Hourly",
-    subtitle: "ROS · Amyloid-beta · Tau",
-    content: "Every hour, your brain produces toxins. Without proper clearance, they accumulate—leading to oxidative stress, plaques, and tangles.",
+    subtitle: "ROS ? Amyloid-beta ? Tau",
+    content: "Every hour, your brain produces toxins. Without proper clearance, they accumulate?leading to oxidative stress, plaques, and tangles.",
     timeLabel: "The Problem",
     bgImage: "",
     features: [],
@@ -119,6 +119,70 @@ const staticSlides: BrainWasteSlide[] = [
       { title: "Mental Fatigue Sets In", color: "rose" }
     ],
     highlight: "Damage increases as mental fatigue and stress persist."
+  }
+  ,  // 12:00 AM
+  {
+    _id: "7",
+    title: "Midnight",
+    subtitle: "Clearance Begins",
+    content: "Glymphatic system activates. Waste removal begins slowly.",
+    timeLabel: "12:00 AM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779098509/mind-recovery/49b757b3-cb16-45c8-ac18-44df99e2d3c0.png",
+    features: [
+      { title: "Deep Sleep Has Begun", color: "blue" },
+      { title: "Glymphatic System Activating", color: "cyan" },
+      { title: "Body Restoring", color: "sky" },
+      { title: "Minimal Stimulation", color: "indigo" }
+    ],
+    highlight: "Glymphatic system activates. Waste removal begins slowly."
+  },
+  // 2:00 AM
+  {
+    _id: "8",
+    title: "Active Cleansing",
+    subtitle: "Deep Sleep Continues",
+    content: "Clearance rate increases during deep sleep.",
+    timeLabel: "2:00 AM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779098571/mind-recovery/9a0a3ffd-6e68-4dc3-b35f-3696d81449d7.png",
+    features: [
+      { title: "Waste Clearance Increases", color: "cyan" },
+      { title: "Heart Rate Low", color: "sky" },
+      { title: "Brain Resting Deeply", color: "blue" },
+      { title: "Toxins Flushed Out", color: "indigo" }
+    ],
+    highlight: "Clearance rate increases during deep sleep."
+  },
+  // 4:00 AM
+  {
+    _id: "9",
+    title: "Deep Clean Phase",
+    subtitle: "Maximum Clearance",
+    content: "Peak clearance window. Brain deeply cleanses and repairs.",
+    timeLabel: "4:00 AM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779098600/mind-recovery/fbc31f47-e84d-49fc-b098-3f1c31c5cf34.png",
+    features: [
+      { title: "REM Cycles Active", color: "indigo" },
+      { title: "Maximum Waste Removal", color: "blue" },
+      { title: "Immune System Active", color: "cyan" },
+      { title: "Vital Signs Stable", color: "sky" }
+    ],
+    highlight: "Peak clearance window. Brain deeply cleanses and repairs."
+  },
+  // 6:00 AM (Duplicate of morning reset - keeping as separate sleep completion)
+  {
+    _id: "10",
+    title: "Reset Complete",
+    subtitle: "Morning Recovery",
+    content: "Most toxins cleared. Brain is refreshed and ready.",
+    timeLabel: "6:00 AM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779098633/mind-recovery/68080612-ad44-4d54-ab9c-f72c9f54cf2a.png",
+    features: [
+      { title: "Waking Up Approaching", color: "yellow" },
+      { title: "System Reset Almost Complete", color: "sky" },
+      { title: "Hydration Restored", color: "blue" },
+      { title: "Ready for the Day", color: "cyan" }
+    ],
+    highlight: "Most toxins cleared. Brain is refreshed and ready."
   }
 ];
 
