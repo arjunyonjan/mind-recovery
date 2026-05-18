@@ -1,4 +1,4 @@
-﻿// Brain Waste - Timeline Slides
+﻿// Brain Waste - Timeline Slides (with Intro)
 export type BrainWasteSlide = {
   _id: string;
   title: string;
@@ -8,9 +8,22 @@ export type BrainWasteSlide = {
   bgImage?: string;
   features?: { title: string; color: string }[];
   highlight?: string;
+  isIntro?: boolean;
 };
 
 const staticSlides: BrainWasteSlide[] = [
+  // INTRO SLIDE (no time, no image side)
+  {
+    _id: "intro", isIntro: true,
+    title: "Brain Waste: What Builds Up Hourly",
+    subtitle: "ROS · Amyloid-beta · Tau",
+    content: "Every hour, your brain produces toxins. Without proper clearance, they accumulate—leading to oxidative stress, plaques, and tangles.",
+    timeLabel: "The Problem",
+    bgImage: "",
+    features: [],
+    highlight: "The goal: Understand what builds up. Learn how to clear it.",
+    isIntro: true
+  },
   {
     _id: "1",
     title: "Morning Reset",
@@ -43,16 +56,46 @@ const staticSlides: BrainWasteSlide[] = [
   },
   {
     _id: "3",
-    title: "Afternoon: Toxins Building",
-    subtitle: "Stress + Work + Environment",
-    content: "ROS levels rising. Amyloid-beta begins to accumulate.",
+    title: "Mid-Morning",
+    subtitle: "Stress Rising",
+    content: "Mental effort and stimulation continue rising.",
+    timeLabel: "10:00 AM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779088596/mind-recovery/a79a2d3d-02f2-4435-82ba-68210c5c326d.png",
+    features: [
+      { title: "Moderate Stress", color: "red" },
+      { title: "Focus & Work", color: "orange" },
+      { title: "Caffeine Boost", color: "amber" },
+      { title: "Screen Time Increases", color: "pink" }
+    ],
+    highlight: "Mental effort and stimulation continue rising."
+  },
+  {
+    _id: "4",
+    title: "Noon",
+    subtitle: "Toxins Building",
+    content: "Cognitive load peaks as toxins continue accumulating.",
+    timeLabel: "12:00 PM",
+    bgImage: "https://res.cloudinary.com/dpnxmo8ak/image/upload/v1779093445/mind-recovery/a33520e8-1d3e-4f90-b0bd-f37e0085c23c.png",
+    features: [
+      { title: "High Stress", color: "violet" },
+      { title: "Peak Workload", color: "purple" },
+      { title: "More Caffeine", color: "fuchsia" },
+      { title: "High Screen Exposure", color: "rose" }
+    ],
+    highlight: "Cognitive load peaks as toxins continue accumulating."
+  },
+  {
+    _id: "5",
+    title: "Afternoon: Toxins Peak",
+    subtitle: "Maximum Accumulation",
+    content: "ROS levels peak. Amyloid-beta plaques begin forming.",
     timeLabel: "2:00 PM",
     bgImage: "",
     features: [],
     highlight: ""
   },
   {
-    _id: "4",
+    _id: "6",
     title: "Evening: Peak Damage",
     subtitle: "End of day stress",
     content: "Maximum toxin levels. Plaques and tangles forming.",
@@ -62,7 +105,7 @@ const staticSlides: BrainWasteSlide[] = [
     highlight: ""
   },
   {
-    _id: "5",
+    _id: "7",
     title: "Night: Sleep Needed",
     subtitle: "Glymphatic system activates",
     content: "Deep sleep clears 60-90% of amyloid-beta.",
